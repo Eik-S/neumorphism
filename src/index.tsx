@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { App } from './App'
 import reportWebVitals from './reportWebVitals'
 import { css, Global } from '@emotion/react'
+import { background } from './styles/backgrounds'
 
 const globalStyles = css`
   body {
@@ -11,6 +12,9 @@ const globalStyles = css`
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    padding: 24px 18px;
+    ${background.accentYellowBg}
   }
 
   code {
@@ -18,11 +22,18 @@ const globalStyles = css`
   }
 `
 
+const contentStyles = css`
+  max-width: 800px;
+  margin: 0 auto;
+`
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Global styles={globalStyles} />
-    <App />
+    <div css={contentStyles}>
+      <App />
+    </div>
   </React.StrictMode>,
 )
 
